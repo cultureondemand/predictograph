@@ -1,4 +1,4 @@
-import lineData from '../data/line-data.js'
+import lineData from '/predictograph/data/line-data.js'
 
 // Selecting the element
 const element = document.getElementById('line-chart');
