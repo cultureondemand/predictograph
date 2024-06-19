@@ -12,44 +12,56 @@
         <div id="line-chart" class="chart"></div>
     </div>
 
+
+    <div id="contentContainer">
+        <img id="thing" src="//www.kirupa.com/images/smiley_red.png">
+    </div>
+ 
+    
+
     <script>
 
+var theThing = document.querySelector("#thing");
+var container = document.querySelector("body");
 
-
-
-
+container.addEventListener("click", getClickPosition, false);
 
 function getClickPosition(e) {
-    var xPosition = e.clientX;
-    var yPosition = e.clientY;
+	var parentPosition = getPosition(e.currentTarget);
+	var xPosition = e.clientX - parentPosition.x - (theThing.clientWidth / 2);
+	var yPosition = e.clientY - parentPosition.y - (theThing.clientHeight / 2);
+	
+	theThing.style.left = xPosition + "px";
+	theThing.style.top = yPosition + "px";
 }
 
-// helper function to get an element's exact position
+// Helper function to get an element's exact position
 function getPosition(el) {
-  var xPosition = 0;
-  var yPosition = 0;
- 
+  var xPos = 0;
+  var yPos = 0;
+
   while (el) {
-    if (el.tagName == "body") {
-        el.addEventListener("click", getClickPosition, false);
+    if (el.tagName == "BODY") {
       // deal with browser quirks with body/window/document and page scroll
-      var xScrollPos = el.scrollLeft || document.documentElement.scrollLeft;
-      var yScrollPos = el.scrollTop || document.documentElement.scrollTop;
- 
-      xPosition += (el.offsetLeft - xScrollPos + el.clientLeft);
-      yPosition += (el.offsetTop - yScrollPos + el.clientTop);
+      var xScroll = el.scrollLeft || document.documentElement.scrollLeft;
+      var yScroll = el.scrollTop || document.documentElement.scrollTop;
+
+      xPos += (el.offsetLeft - xScroll + el.clientLeft);
+      yPos += (el.offsetTop - yScroll + el.clientTop);
     } else {
-      xPosition += (el.offsetLeft - el.scrollLeft + el.clientLeft);
-      yPosition += (el.offsetTop - el.scrollTop + el.clientTop);
+      // for all other non-BODY elements
+      xPos += (el.offsetLeft - el.scrollLeft + el.clientLeft);
+      yPos += (el.offsetTop - el.scrollTop + el.clientTop);
     }
- 
+
     el = el.offsetParent;
   }
   return {
-    x: xPosition,
-    y: yPosition
+    x: xPos,
+    y: yPos
   };
 }
+
 
     </script>
 </body>
