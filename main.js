@@ -5,8 +5,8 @@ const element = document.getElementById('line-chart');
 
 // Setting dimensions
 const margin = {top: 40, right: 30, bottom: 7, left: 50},
-    width = 900 - margin.left - margin.right,
-    height = 300 - margin.top - margin.bottom;
+    width = 2700 - margin.left - margin.right,
+    height = 900 - margin.top - margin.bottom;
 
 // Parsing timestamps
 const parseTime = d3.timeParse('%Y/%m/%d');
@@ -23,7 +23,7 @@ const parsedData = lineData.map(item => (
 const svg = d3.select(element)
     .append('svg')
     .attr('width', width + margin.left + margin.right)
-    .attr('height', 300 + margin.top + margin.bottom)
+    .attr('height', 900 + margin.top + margin.bottom)
     .attr("viewBox", `0 40 ${width + 80} ${height}`)
     .append('g')
     .attr('transform', `translate(${margin.left}, ${margin.top})`);
@@ -56,7 +56,8 @@ const line = d3.line()
     .y(function(d) {
         return yScale(d.total);
     })
-    .curve(d3.curveCatmullRom.alpha(0.5));
+   //// .curve(d3.curveCatmullRom.alpha(0.5));
+    .curve(d3.curveCatmullRom.alpha(0));
 
 // Defining initial area, which appear on chart load
 const zeroArea = d3.area()
@@ -79,7 +80,7 @@ const path = chartSvg.append('path')
     .attr('d', function(d) {
         return line(d.values)
     })
-    .attr('stroke-width', '5')
+    .attr('stroke-width', ' 5')
     .style('fill', 'none')
     .attr('stroke', '#ff6f3c');
 
@@ -100,14 +101,14 @@ chartSvg.append("path")
         return zeroArea(d.values)
     })
   /////  .style('fill', 'rgba(255,111,60,0.15)')
-  .style('fill', 'rgba(255,255,255,1)')
+  .style('fill', 'rgba(255,255,255,0)')
   .transition()
     .duration(1500)
     .attr("d", function(d) {
         return area(d.values)
     })
    //// .style('fill', 'rgba(255,111,60,0.15)');
-    .style('fill', 'rgba(255,255,255,1)');
+    .style('fill', 'rgba(255,255,255,0)');
 
 // Adding the x Axis
 svg.append("g")
