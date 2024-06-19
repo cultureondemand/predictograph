@@ -103,7 +103,8 @@ chartSvg.append("path")
     .attr("d", function(d) {
         return area(d.values)
     })
-    .style('fill', 'rgba(255,111,60,0.15)');
+   //// .style('fill', 'rgba(255,111,60,0.15)');
+    .style('fill', 'rgba(255,255,255)');
 
 // Adding the x Axis
 svg.append("g")
