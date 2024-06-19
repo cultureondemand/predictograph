@@ -6,10 +6,17 @@
     align-items: center;
 }
 
-.grid .tick {
-    stroke: lightgrey;
-    opacity: 0.7;
+#contentContainer {
+	width: 100vw;
+	height: 100vh;
+	overflow: hidden;
+	cursor: pointer;
+    z-index: 111111111;
 }
-.grid path {
-      stroke-width: 0;
+#thing {
+	position: relative;
+	left: 0px;
+	bottom: 0px;
+	transition: left .5s cubic-bezier(.42,-0.3,.78,1.25), 
+				top .5s cubic-bezier(.42,-0.3,.78,1.25);
 }
