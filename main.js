@@ -100,14 +100,14 @@ chartSvg.append("path")
         return zeroArea(d.values)
     })
   /////  .style('fill', 'rgba(255,111,60,0.15)')
-  .style('fill', 'rgba(255,255,255)');
+  .style('fill', 'rgba(255,255,255,1)');
   .transition()
     .duration(1500)
     .attr("d", function(d) {
         return area(d.values)
     })
    //// .style('fill', 'rgba(255,111,60,0.15)');
-    .style('fill', 'rgba(255,255,255)');
+    .style('fill', 'rgba(255,255,255,1)');
 
 // Adding the x Axis
 svg.append("g")
