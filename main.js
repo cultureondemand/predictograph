@@ -113,8 +113,12 @@ chartSvg.append("path")
 // Adding the x Axis
 svg.append("g")
     .attr("transform", "translate(0," + height + ")")
+
+    .ticks(8)
+
     .call(d3.axisBottom(xScale));
 
 // Adding the y Axis
 svg.append("g")
+
     .call(d3.axisLeft(yScale));
