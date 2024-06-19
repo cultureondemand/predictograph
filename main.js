@@ -5,7 +5,7 @@ const element = document.getElementById('line-chart');
 
 // Setting dimensions
 const margin = {top: 40, right: 30, bottom: 7, left: 50},
-    width = 1800 - margin.left - margin.right,
+    width = 1200 - margin.left - margin.right,
     height = 600 - margin.top - margin.bottom;
 
 // Parsing timestamps
