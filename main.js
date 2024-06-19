@@ -4,7 +4,7 @@ import lineData from '/predictograph/data/line-data.js'
 const element = document.getElementById('line-chart');
 
 // Setting dimensions
-const margin = {top: 0, right: 0, bottom: 0, left: 0},
+const margin = {top: 0, right: 0, bottom: 0, left: 80},
     width = window.innerWidth - margin.left - margin.right,
     height = window.innerHeight - margin.top - margin.bottom;
 
@@ -24,7 +24,7 @@ const svg = d3.select(element)
     .append('svg')
     .attr('width', width + margin.left + margin.right)
     .attr('height', height + margin.top + margin.bottom)
-    .attr("viewBox", `0 40 ${width + 80} ${height}`)
+    .attr("viewBox", `0 0 ${width + 80} ${height}`)
     .append('g')
     .attr('transform', `translate(${margin.left}, ${margin.top})`);
 
