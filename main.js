@@ -56,7 +56,7 @@ const line = d3.line()
     .y(function(d) {
         return yScale(d.total);
     })
-    .curve(d3.curveCatmullRom.alpha(0.5));
+    .curve(d3.curveBundle.beta(0.5));
 
 // Defining initial area, which appear on chart load
 const zeroArea = d3.area()
