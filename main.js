@@ -63,21 +63,23 @@ const zeroArea = d3.area()
     .x(function(d) { return xScale(d.date); })
     .y0(height)
     .y1(function() { return 0; })
-    .curve(d3.curveCatmullRom.alpha(0.5));
+   //// .curve(d3.curveCatmullRom.alpha(0.5));
+    .curve(d3.curveCatmullRom.alpha(0));
 
 // Defining the area, which appear after animation ends
 const area = d3.area()
     .x(function(d) { return xScale(d.date); })
     .y0(height)
     .y1(function(d) { return yScale(d.total); })
-    .curve(d3.curveCatmullRom.alpha(0.5));
+   //// .curve(d3.curveCatmullRom.alpha(0.5));
+    .curve(d3.curveCatmullRom.alpha(0));
 
 // Defining the line path
 const path = chartSvg.append('path')
     .attr('d', function(d) {
         return line(d.values)
     })
-    .attr('stroke-width', '2')
+    .attr('stroke-width', '15')
     .style('fill', 'none')
     .attr('stroke', '#ff6f3c');
 
@@ -97,8 +99,9 @@ chartSvg.append("path")
     .attr("d", function(d) {
         return zeroArea(d.values)
     })
-    .style('fill', 'rgba(255,111,60,0.15)')
-    .transition()
+  /////  .style('fill', 'rgba(255,111,60,0.15)')
+  .style('fill', 'rgba(255,255,255)');
+  .transition()
     .duration(1500)
     .attr("d", function(d) {
         return area(d.values)
