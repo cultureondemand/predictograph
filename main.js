@@ -5,8 +5,8 @@ const element = document.getElementById('line-chart');
 
 // Setting dimensions
 const margin = {top: 40, right: 30, bottom: 7, left: 50},
-    width = 2700 - margin.left - margin.right,
-    height = 900 - margin.top - margin.bottom;
+    width = 1800 - margin.left - margin.right,
+    height = 600 - margin.top - margin.bottom;
 
 // Parsing timestamps
 const parseTime = d3.timeParse('%Y/%m/%d');
@@ -23,7 +23,7 @@ const parsedData = lineData.map(item => (
 const svg = d3.select(element)
     .append('svg')
     .attr('width', width + margin.left + margin.right)
-    .attr('height', 900 + margin.top + margin.bottom)
+    .attr('height', 600 + margin.top + margin.bottom)
     .attr("viewBox", `0 40 ${width + 80} ${height}`)
     .append('g')
     .attr('transform', `translate(${margin.left}, ${margin.top})`);
