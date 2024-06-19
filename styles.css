@@ -12,6 +12,9 @@
 	overflow: hidden;
 	cursor: pointer;
     z-index: 111111111;
+    position: relative;
+    top: 0;
+    left: 0;
 }
 #thing {
 	position: relative;
