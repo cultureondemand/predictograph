@@ -114,7 +114,6 @@ chartSvg.append("path")
 svg.append("g")
     .attr("transform", "translate(0," + height + ")")
 
-    .ticks(8)
 
     .call(d3.axisBottom(xScale));
 
