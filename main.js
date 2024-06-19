@@ -100,7 +100,7 @@ chartSvg.append("path")
         return zeroArea(d.values)
     })
   /////  .style('fill', 'rgba(255,111,60,0.15)')
-  .style('fill', 'rgba(255,255,255,1)');
+  .style('fill', 'rgba(255,255,255,1)')
   .transition()
     .duration(1500)
     .attr("d", function(d) {
