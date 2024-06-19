@@ -4,7 +4,7 @@ import lineData from '/predictograph/data/line-data.js'
 const element = document.getElementById('line-chart');
 
 // Setting dimensions
-const margin = {top: 0, right: 0, bottom: 0, left: 80},
+const margin = {top: 0, right: 0, bottom: 0, left: 10},
     width = window.innerWidth - margin.left - margin.right,
     height = window.innerHeight - margin.top - margin.bottom;
 
@@ -24,7 +24,7 @@ const svg = d3.select(element)
     .append('svg')
     .attr('width', width + margin.left + margin.right)
     .attr('height', height + margin.top + margin.bottom)
-    .attr("viewBox", `0 0 ${width + 80} ${height}`)
+    .attr("viewBox", `10 0 ${width + 10} ${height}`)
     .append('g')
     .attr('transform', `translate(${margin.left}, ${margin.top})`);
 
@@ -56,7 +56,7 @@ const line = d3.line()
     .y(function(d) {
         return yScale(d.total);
     })
-    .curve(d3.curveBundle.beta(0.5));
+    .curve(d3.curveCatmullRom.alpha(1));
 
 // Defining initial area, which appear on chart load
 const zeroArea = d3.area()
@@ -79,7 +79,7 @@ const path = chartSvg.append('path')
     .attr('d', function(d) {
         return line(d.values)
     })
-    .attr('stroke-width', '15')
+    .attr('stroke-width', '5')
     .style('fill', 'none')
     .attr('stroke', '#ff6f3c');
 
