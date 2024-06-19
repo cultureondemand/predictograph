@@ -1,4 +1,4 @@
-import lineData from '/predictograph/data/line-data.js'
+import lineData from '../data/line-data.js'
 
 // Selecting the element
 const element = document.getElementById('line-chart');
@@ -90,7 +90,7 @@ path.attr("stroke-dasharray", length + " " + length)
     .ease(d3.easeLinear)
     .attr("stroke-dashoffset", 0)
     .delay(1500)
-    .duration(3000)
+    .duration(30000)
 
 // Drawing animated area
 chartSvg.append("path")
